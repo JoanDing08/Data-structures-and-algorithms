@@ -1,0 +1,6 @@
+Explain the concept of lower bound and upper bound (best and worst case scenario).
+Implement lower_bound and upper_bound as homework. (<-ask how to do this)
+
+
+upper bound = worst case scenario
+lower bound = best case scenario
