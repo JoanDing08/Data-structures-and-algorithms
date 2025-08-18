@@ -40,3 +40,5 @@ def infix_to_postfix(e):
 if __name__=="__main__":
     expression="a+b*(c^d-e)^(f+g*h)-i"
     print(infix_to_postfix(expression))
+
+#output should be: abcd^e-fgh*+^*+i-
