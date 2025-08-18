@@ -1,0 +1,42 @@
+#Homework: Explain the infix to postfix implementation
+#Provide the pseudo code and give the implementation as homework referring the pseudo code.
+
+#infix: operators put inbetween the operands (e.g. a+b)
+#postfix: operators put after the operands (e.g. ab+)
+
+#infix to prefix pseudo code:
+
+def prec(c):
+  if c=="^":
+    return 3
+  elif c in ("/","*"):
+    return 2
+  elif c in ("+","-"):
+    return 1
+  else:
+    return -1
+
+def infix_to_postfix(e):
+  stack=[]
+  res=""
+
+  for c in s:
+    if c.isalnum():
+      res+=c
+    elif c=="(": 
+      stack.append("(")
+    elif c==")":
+      while stack and stack[-1]!="(": 
+        res+=stack.pop()
+        stack.pop()
+    else:
+      while stack and prec(c)<=prec(stack[-1]):
+        res+=stack.pop()
+        stack.append(c)
+    while stack:
+        res+=stack.pop()
+  return res
+
+if __name__=="__main__":
+    expression="a+b*(c^d-e)^(f+g*h)-i"
+    print(infix_to_postfix(expression))
